@@ -4,9 +4,10 @@
 
 
 """
-import csv
 import sys
 import pandas as pd
+import numpy as np
+import time
 
 
 def latexize(text):
@@ -17,10 +18,12 @@ def latexize(text):
     """
     return text.replace('&','\\&').replace('#','\\#').replace('{','\\{').replace('}','\\}').replace('_','\\_')
 
-def process_daily(daily_events):
-    """ Blat out the LaTeX for the daily events
 
-    :param daily_events: dataframe of just the daily events
+
+def process_ongoing(ongoing_events):
+    """ Blat out the LaTeX for the ongoing events
+
+    :param ongoing_events: dataframe of just the ongoing events
     :return: None
     """
     def print_event(event):
@@ -41,8 +44,19 @@ def process_daily(daily_events):
 
     print('\section*{Ongoing}\n')
 
-    for index, event in daily_events.iterrows():
+    for index, event in ongoing_events.iterrows():
         print_event(event)
+
+
+def process_daily(daily_events):
+    """ Blat out the LaTeX for the daily events
+
+    :param daily_events: *sorted* dataframe by date and starting time
+    :return: None
+    """
+
+    for index, event in daily_events.iterrows():
+        print(index, event.Date, event['Start Time'], event['End Time'])
 
 
 if __name__ == '__main__':
@@ -51,10 +65,30 @@ if __name__ == '__main__':
     events_df = pd.read_csv(sys.argv[1])
 
     # pull out the ongoing events first and blat those out
-    process_daily(events_df[events_df.Date == 'Daily'])
+    # process_ongoing(events_df[events_df.Date == 'Daily'])
 
-    # Then sort by date, start time and end time
+    # now pull out the
+    daily_events = events_df[events_df.Date != 'Daily']
 
-    # Then process each record.
+    # ALL OF THIS IS UNNECESSARY IF YOU SORT THE SPREADSHEET BY DATE AND START TIME FIRST.  ARGH.
+    # # we have to *all kinds* of gymnastics to get the time data to where we can sort it.
+    # daily_events = daily_events.replace('TBD', np.NaN) # TBD? We'll treat that starting time as a NaN, thank you
+    #
+    # # now convert the HH:MM AM/PM to an actual time object that we can sort on
+    # daily_events['Start Time'] = daily_events['Start Time'].map(
+    #     lambda x: time.strptime(x, '%H:%M %p') if not pd.isna(x) else np.NaN)
+    #
+    # # Define our ordinal values for days
+    # days = ['Thursday', 'Friday', 'Saturday', 'Sunday']
+    #
+    # # ... and then remap all the dates to that ordinal type so we can sort on _that_, too
+    # daily_events.Date = daily_events.Date.astype('category', ordered=True, categories=days)
+    #
+    # # Then FINALLY sort by date, start time
+    # daily_events = daily_events.sort_values(['Date','Start Time'])
+    #
+    # Now, at long last, blat out the LaTeX for each of those
+    process_daily(daily_events)
+
 
 
