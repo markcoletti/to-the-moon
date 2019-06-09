@@ -55,6 +55,7 @@ def process_daily(daily_events):
     :return: None
     """
     def print_event(event):
+        # FIXME This is a little different from the other print_event(), but they're similar enough to be consolidated
         print('\\vbox{')
         print('\subsection*{',event.Title,'}',sep='')
         print('\\begin{description}[leftmargin=6em,noitemsep,style=nextline]')
@@ -62,9 +63,12 @@ def process_daily(daily_events):
         if not pd.isnull(event.Host):
             print('    \item[Host:]', event.Host)
         if event['Start Time'] != 'Ongoing event':
-            print('    \item[Start time:]', event['Start Time'])
-        if not pd.isnull(event['End Time']):
-            print('    \item[End time:]', event['End Time'])
+            if pd.isnull(event['End Time']):
+                # If we only have a start time, print that
+                print('    \item[Start time:]', event['Start Time'])
+            else:
+                # If we have BOTH, print both
+                print('    \item[Time:]', event['Start Time'], '--', event['End Time'])
         print('\end{description}\n')
         print(latexize(event.Description),'\n')
         if not pd.isnull(event.Notes):
