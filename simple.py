@@ -15,6 +15,7 @@
 """
 import csv
 import sys
+from events import latexize
 
 if __name__ == '__main__':
     with open(sys.argv[1]) as csv_file:
@@ -24,7 +25,7 @@ if __name__ == '__main__':
         next(csv_reader)
 
         for i, item in enumerate(csv_reader):
-            print('\section*{', item[0], '}', sep='')
-            print(item[1], '\n\n')
+            print('\section*{', item[1], '}', sep='')
+            print(latexize(item[2]), '\n\n')
 
 
