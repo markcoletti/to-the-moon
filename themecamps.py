@@ -12,11 +12,14 @@
     Description
 """
 import csv
+import sys
 
 if __name__ == '__main__':
-    with open('data/themecamps.csv') as themecamps:
+    with open(sys.argv[1]) as themecamps:
         themecamps_reader = csv.reader(themecamps)
 
+        next(themecamps_reader)
+
         for i, theme_camp in enumerate(themecamps_reader):
-            print(i, ':', theme_camp[0], theme_camp[1])
+            print('	\item[\\textbf{' f'{theme_camp[1]}' '}] ' f'{theme_camp[2]}')
 
