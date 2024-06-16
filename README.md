@@ -11,4 +11,5 @@ just creates `\sections` and `\subsections` for each entry.  More recent version
 additonal information to share additional information, such as event categories and theme camp attributes.
 
 
-* `mk_camps.py` - Generates LaTeX code for theme camps.
+* `mk_camps.py` - Generates LaTeX code for theme camps
+* `mk_events.py` - Generates LaTeX code for events
