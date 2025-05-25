@@ -18,7 +18,7 @@ friday = '\section[Friday]{Friday Events}\n\n'
 saturday = '\section[Saturday]{Saturday Events}\n\n'
 sunday = '\section[Sunday]{Sunday Events}\n\n'
 
-def makeEventTheme(theme):
+def make_event_theme(theme):
   if theme == 'Performance':
     return '{\color{purple} \\faTheaterMasks}'
   elif theme == 'Event':
@@ -47,8 +47,8 @@ def makeEventTheme(theme):
     return ''
 
 
-def compileEventOutput(title, host, location, time, description, bring):
-  output = '\\vbox{\n' + title + "\\begin{description}[leftmargin=2em,noitemsep,style=nextline]\n" + host + location + time +\
+def compile_event_output(title, host, location, time, description, bring):
+  output = '\\vbox{\n' + title + "\\begin{description}[leftmargin=2em,noitemsep,style=nextline]\n" + host + location + time + \
             bring + "\end{description}\n" + description.replace('&', '\\&') + '}\n\n'
   # output = output.replace('&', '\\&')
   output = output.replace('\n', '\n\n')
@@ -99,18 +99,22 @@ if __name__ == '__main__':
 
 
     for index, row in df.iterrows():
-        title = '\subsection*{\\begin{tblr}{Q[0.8\columnwidth]X[halign=r, valign=t]}' + '{} & {}'.format(
-            row.title.replace('&', '\\&'), makeEventTheme(row.theme) + '\end{tblr}}\n')
         print(f'Processing {row.title}...')
+
+        title = '\subsection*{\\begin{tblr}{Q[0.8\columnwidth]X[halign=r, valign=t]}' + '{} & {}'.format(
+            row.title.replace('&', '\\&'), make_event_theme(row.theme) + '\end{tblr}}\n')
+
         if not pd.isnull(row.host) and row.host != '':
             host = '\item[{\color{violet} \\faUserFriends}] ' + '{}'.format(row.host) + '\n'
         else:
             host = ''
+
         locationField = row.location
         location = ''
         if locationField != '':
             location = '\item[{\color{teal} \\faMapMarked}] ' + '{}'.format(locationField) + '\n'
-        theme = makeEventTheme(row.theme)
+
+        theme = make_event_theme(row.theme)
         day = row.shortDay.split(',')[0] # Get the three letter day of the week
         time = '\item[{\color{cyan} \\faClock[regular]}] ' + '{}'.format(row.shortTime) + '\n'
         description = '{}'.format(latexize(row.description)) + '\n'
@@ -118,7 +122,7 @@ if __name__ == '__main__':
             bring = '\item[{\color{red} \\faSuitcase}] ' + '{}'.format(row.bring) + '\n'
         else:
             bring = ''
-        output = compileEventOutput(title, host, location, time, description, bring)
+        output = compile_event_output(title, host, location, time, description, bring)
         if day == 'Everyday':
             ongoing += output
         elif day == 'Thu':
