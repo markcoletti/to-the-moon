@@ -12,6 +12,8 @@ import pandas as pd
 
 from common import latexize
 
+# We append the events to each of these strings as we go along, then write
+# them all out at once at the very end to the output .tex file.
 ongoing = '' # title for ongoing saved separately
 thursday = '\section[Thursday]{Thursday Events}\n\n'
 friday = '\section[Friday]{Friday Events}\n\n'
@@ -115,6 +117,7 @@ if __name__ == '__main__':
             location = '\item[{\color{teal} \\faMapMarked}] ' + '{}'.format(locationField) + '\n'
 
         theme = make_event_theme(row.theme)
+
         day = row.shortDay.split(',')[0] # Get the three letter day of the week
         time = '\item[{\color{cyan} \\faClock[regular]}] ' + '{}'.format(row.shortTime) + '\n'
         description = '{}'.format(latexize(row.description)) + '\n'
