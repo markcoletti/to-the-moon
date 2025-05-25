@@ -84,23 +84,24 @@ if __name__ == '__main__':
     df = df.infer_objects()
 
     # For events that occur over more than one day, we must replicate that even for each of those extra days
-    df['day_list'] = df['day'].apply(extract_dates)
+    df['day_list'] = df['days'].apply(extract_dates)
 
-    df_expanded = df.explode('day_list').drop(columns='day')
+    df_expanded = df.explode('day_list').drop(columns='days')
     df_expanded = df_expanded.rename(columns={'day_list': 'day_str'})
-    df_expanded['day'] = df_expanded['day_str'].apply(parse_date)
+    df_expanded['date'] = df_expanded['day_str'].apply(parse_date)
     df_expanded = df_expanded.drop(columns='day_str')
 
-    df_expanded['start_time'] = pd.to_datetime(df_expanded['start'], format='%H:%M').dt.time
-    df_expanded['end_time'] = pd.to_datetime(df_expanded['end'], format='%H:%M').dt.time
+    df_expanded['start_time'] = pd.to_datetime(df_expanded['start'], format='%I:%M:%S %p').dt.time
+    df_expanded['end_time'] = pd.to_datetime(df_expanded['end'], format='%I:%M:%S %p').dt.time
 
-    df_sorted = df_expanded.sort_values(by=['day', 'start_time'], inplace=True)
+    df_expanded['day'] = df_expanded['date'].dt.day_name()
+
+    df_expanded.sort_values(by=['date', 'start_time'], inplace=True)
 
     # Strip any leading or trailing whitespace from the camp name and theme
-    df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
+    # df_expanded = df_expanded.apply(lambda col: col.str.strip() if col.dtype == 'object' and col.str.strip().notna().any() else col)
 
-
-    for index, row in df.iterrows():
+    for index, row in df_expanded.iterrows():
         print(f'Processing {row.title}...')
 
         title = '\subsection*{\\begin{tblr}{Q[0.8\columnwidth]X[halign=r, valign=t]}' + '{} & {}'.format(
@@ -118,23 +119,28 @@ if __name__ == '__main__':
 
         theme = make_event_theme(row.theme)
 
-        day = row.shortDay.split(',')[0] # Get the three letter day of the week
-        time = '\item[{\color{cyan} \\faClock[regular]}] ' + '{}'.format(row.shortTime) + '\n'
+        day = row.day # day of week
+
+        time = ('\item[{\color{cyan} \\faClock[regular]}] ' + '{}'.format(row.start_time) + '--' +
+                '{}'.format(row.end_time) + '\n')
         description = '{}'.format(latexize(row.description)) + '\n'
+
         if not pd.isnull(row.bring) or row.bring != '':
             bring = '\item[{\color{red} \\faSuitcase}] ' + '{}'.format(row.bring) + '\n'
         else:
             bring = ''
+
         output = compile_event_output(title, host, location, time, description, bring)
+
         if day == 'Everyday':
             ongoing += output
-        elif day == 'Thu':
+        elif day == 'Thursday':
             thursday += output
-        elif day == 'Fri':
+        elif day == 'Friday':
             friday += output
-        elif day == 'Sat':
+        elif day == 'Saturday':
             saturday += output
-        elif day == 'Sun':
+        elif day == 'Sunday':
             sunday += output
 
     with open('events_raw.tex', 'w') as f:
