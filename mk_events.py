@@ -112,10 +112,12 @@ if __name__ == '__main__':
         else:
             host = ''
 
-        locationField = row.location
-        location = ''
-        if locationField != '':
+
+        if not pd.isnull(row.location) and row.location != '':
+            locationField = row.location
             location = '\item[{\color{teal} \\faMapMarked}] ' + '{}'.format(locationField) + '\n'
+        else:
+            location = ''
 
         theme = make_event_theme(row.theme)
 
