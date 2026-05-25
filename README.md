@@ -10,6 +10,7 @@ The directory `simple` contains older scripts that generates simple LaTeX for ar
 just creates `\sections` and `\subsections` for each entry.  More recent versions in this directory level use 
 additonal information to share additional information, such as event categories and theme camp attributes.
 
-
+* `mk_art.py` - Generates LaTeX code for art
 * `mk_camps.py` - Generates LaTeX code for theme camps
 * `mk_events.py` - Generates LaTeX code for events
+* `mk_keyfile.py` - Generates camp and art map keys
