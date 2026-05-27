@@ -10,7 +10,18 @@ import argparse
 
 
 
+def emit_latex_list(df, key):
+    """Emit a LaTeX list from the DataFrame."""
 
+    print("\\begin{multicols}{2}\n\\small\n")
+
+    print("\\begin{itemize}[itemsep=.0125mm,parsep=2pt]")
+    for _, row in df.iterrows():
+        name = row["Name"].replace("&", "\\&")
+        print(f"\t\\item[\\textbf{{ {row[key]} }}] {name}")
+    print("\\end{itemize}\n")
+
+    print("\n\\end{multicols}\n")
 
 
 if __name__ == '__main__':
@@ -28,36 +39,14 @@ if __name__ == '__main__':
 
     print("\\subsection*{Numeric}")
 
-    print("\begin{multicols}{2}\n\\small\n")
+    emit_latex_list(map_keys_df, args.key)
 
-    print("\\begin{itemize}[itemsep=.0125mm,parsep=2pt]")
-
-    for _, row in map_keys_df.iterrows():
-        name = row["Name"].replace("&", "\\&")
-        print(f"\t\\item[\\textbf{{ {row['id']} }}] {name}")
-
-    print("\\end{itemize}")
-    print("\n\\end{multicols}\n")
 
     # Now do things in alphabetical order
-
-    print("\subsection*{Alphabetic}")
     map_keys_df.sort_values(by="Name", inplace=True, ignore_index=True)
 
-    print("\begin{multicols}{2}\n\\small\n")
+    print("\\subsection*{Alphabetic}")
 
-    print("\\begin{itemize}[itemsep=.0125mm,parsep=2pt]")
+    emit_latex_list(map_keys_df, args.key)
 
-
-    print("\\begin{itemize}[itemsep=.0125mm,parsep=2pt]")
-
-    for _, row in map_keys_df.iterrows():
-        name = row["Name"].replace("&", "\\&")
-        print(f"\t\\item[\\textbf{{ {row['id']} }}] {name}")
-
-    print("\\end{itemize}")
-
-
-    print("\\end{itemize}")
-    print("\n\\end{multicols}\n")
 
