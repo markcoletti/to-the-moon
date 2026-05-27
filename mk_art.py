@@ -17,10 +17,9 @@ if __name__ == '__main__':
     art_df = pd.read_csv(sys.argv[1])
 
     # Let's get some sensible column names
-    art_df.rename(columns={'What is the Name of your Art Project?' : 'name',
-                           'Public Description of your Art Project' : 'description',
-                           'Artist Name ' : 'artist',
-                           'Artist Pronouns (Ex. She/They, He/Him, etc)' : 'pronouns',
+    art_df.rename(columns={'Name of your Art Installation' : 'name',
+                           'Give us a short description to be added to our 2024 Pocket Guide!            (500 character max)' : 'description',
+                           'Artist Name' : 'artist'
                            }, inplace=True)
 
     # Now let's sort by name
@@ -33,16 +32,19 @@ if __name__ == '__main__':
         art_raw.writelines([header])
 
         for row in art_df.itertuples():
+            art_raw.write('\\vbox{\n') # to ensure that the art description doesn't get split across pages
             art_raw.write(f'\section*{{{row.name}}}\n\n')
 
             artist = row.artist
             # Only add pronouns if they've been specified
-            if row.pronouns is not None and not pd.isnull(row.pronouns):
-                artist += ' (' + row.pronouns + ')'
+            # if row.pronouns is not None and not pd.isnull(row.pronouns):
+            #     artist += ' (' + row.pronouns + ')'
             art_raw.write(f'By {artist}')
 
             art_raw.write('\n\n')
 
             art_raw.write(latexize(row.description))
+
+            art_raw.write('\n}\n')
 
             art_raw.write('\n\n')
