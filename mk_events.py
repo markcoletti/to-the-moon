@@ -61,12 +61,29 @@ def extract_dates(day_str):
     return re.findall(r'\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+[A-Za-z]+\s+\d{1,2}', day_str)
 
 
-def parse_date(day_str):
-    return datetime.strptime(f"{day_str}, 2025", "%A, %B %d, %Y")
+def infer_event_year(df, input_path):
+    path_match = re.search(r'(20\d{2})', input_path)
+    if path_match:
+        return int(path_match.group(1))
+
+    if 'Timestamp' in df.columns:
+        timestamp_values = df['Timestamp'].dropna().astype(str)
+        for value in timestamp_values:
+            timestamp_match = re.search(r'(20\d{2})', value)
+            if timestamp_match:
+                return int(timestamp_match.group(1))
+
+    return datetime.now().year
+
+
+def parse_date(day_str, year):
+    return datetime.strptime(f"{day_str}, {year}", "%A, %B %d, %Y")
 
 
 if __name__ == '__main__':
-    df = pd.read_csv(sys.argv[1])
+    input_path = sys.argv[1]
+    df = pd.read_csv(input_path)
+    event_year = int(sys.argv[2]) if len(sys.argv) > 2 else infer_event_year(df, input_path)
 
     # Rename from the original Google form names to something a little more reasonable.
 
@@ -88,7 +105,7 @@ if __name__ == '__main__':
 
     df_expanded = df.explode('day_list').drop(columns='days')
     df_expanded = df_expanded.rename(columns={'day_list': 'day_str'})
-    df_expanded['date'] = df_expanded['day_str'].apply(parse_date)
+    df_expanded['date'] = df_expanded['day_str'].apply(lambda day_str: parse_date(day_str, event_year))
     df_expanded = df_expanded.drop(columns='day_str')
 
     df_expanded['start_time'] = pd.to_datetime(df_expanded['start'], format='%I:%M:%S %p').dt.time

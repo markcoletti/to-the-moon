@@ -1,0 +1,75 @@
+consolidated_event_title,canonical_normalized_key,prioritized_source,present_in_dust_events_csv,present_in_forms_events_csv,present_in_forms_grotto_events_csv,dust_title_matched,dust_match_type,dust_match_score,forms_events_title_matched,forms_events_match_type,forms_events_match_score,forms_grotto_title_matched,forms_grotto_match_type,forms_grotto_match_score
+Ad Fontes Twisted Disco,ad fontes twisted disco,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Ad Fontes Twisted Disco,source_only,1.0,,none,0.0
+Afternoon Tea,afternoon tea,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Afternoon Tea,source_only,1.0,,none,0.0
+Banana Lounge & Hammock Forest,banana lounge & hammock forest,dust_events.csv,TRUE,FALSE,FALSE,Banana Lounge & Hammock Forest,exact,1.0,,none,0.0,,none,0.0
+Breakfast delights,breakfast delights,dust_events.csv,TRUE,FALSE,FALSE,Breakfast delights,exact,1.0,,none,0.0,,none,0.0
+Broken Barbie Regenesis,broken barbie regenesis,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Broken Barbie Regenesis,source_only,1.0,,none,0.0
+Brother Jon's Birthday,brother jon's birthday,dust_events.csv,TRUE,FALSE,FALSE,Brother Jon's Birthday,exact,1.0,,none,0.0,,none,0.0
+Burn Arena!!,burn arena!!,dust_events.csv,TRUE,TRUE,FALSE,Burn Arena!!,exact,1.0,BURN ARENA,fuzzy,1.0,,none,0.0
+Cheese Tasting,cheese tasting,dust_events.csv,TRUE,TRUE,FALSE,Cheese Tasting,exact,1.0,Cheese Tasting,exact,1.0,,none,0.0
+"Come as you are, flow as you go - open flow with music and friends",come as you are flow as you go - open flow with music and friends,dust_events.csv,TRUE,TRUE,FALSE,"Come as you are, flow as you go - open flow with music and friends",exact,1.0,"Come as you are, flow as you go - open flow with music and friends",exact,1.0,,none,0.0
+Community Spark-Up,community spark-up,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Community Spark-Up,source_only,1.0,,none,0.0
+Drum Circle,drum circle,dust_events.csv,TRUE,TRUE,FALSE,Drum Circle,exact,1.0,Drum Circle,exact,1.0,,none,0.0
+Effigy Burn 🔥,effigy burn,dust_events.csv,TRUE,FALSE,FALSE,Effigy Burn 🔥,exact,1.0,,none,0.0,,none,0.0
+Elven Elixirs,elven elixirs,dust_events.csv,TRUE,FALSE,FALSE,Elven Elixirs,exact,1.0,,none,0.0,,none,0.0
+Fiesta pickles on a stick!,fiesta pickles on a stick!,dust_events.csv,TRUE,FALSE,FALSE,Fiesta pickles on a stick!,exact,1.0,,none,0.0,,none,0.0
+Figure Drawing and Chill,figure drawing and chill,dust_events.csv,TRUE,FALSE,FALSE,Figure Drawing and Chill,exact,1.0,,none,0.0,,none,0.0
+Fire Safety Meeting,fire safety meeting,dust_events.csv,TRUE,FALSE,FALSE,Fire Safety Meeting,exact,1.0,,none,0.0,,none,0.0
+Flogger Making,flogger making,dust_events.csv,TRUE,TRUE,FALSE,Flogger Making,exact,1.0,Flogger Making,exact,1.0,,none,0.0
+Flotilla party on the lake,flotilla party on the lake,dust_events.csv,TRUE,FALSE,FALSE,Flotilla party on the lake,exact,1.0,,none,0.0,,none,0.0
+Flow As You Go - Grotto flow jam,flow as you go - grotto flow jam,dust_events.csv,TRUE,FALSE,TRUE,Flow As You Go - Grotto flow jam,exact,1.0,,none,0.0,Flow As You Go- Grotto flow jam,fuzzy,1.0
+Foreskin Restoration Workshop,foreskin restoration workshop,dust_events.csv,TRUE,TRUE,FALSE,Foreskin Restoration Workshop,exact,1.0,Foreskin Restoration Workshop,exact,1.0,,none,0.0
+Free flow in the grotto,free flow in the grotto,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Free flow in the grotto,source_only,1.0,,none,0.0
+Get Glow'd,get glow'd,dust_events.csv,TRUE,FALSE,FALSE,Get Glow'd,exact,1.0,,none,0.0,,none,0.0
+Gifting Table,gifting table,dust_events.csv,TRUE,FALSE,TRUE,Gifting Table,exact,1.0,,none,0.0,Gifting Table,exact,1.0
+Gluten Free Friday Tea Party,gluten free friday tea party,dust_events.csv,TRUE,TRUE,FALSE,Gluten Free Friday Tea Party,exact,1.0,Gluten Free Friday Tea Party,exact,1.0,,none,0.0
+Guided Journey into the Elven Realm,guided journey into the elven realm,dust_events.csv,TRUE,FALSE,FALSE,Guided Journey into the Elven Realm,exact,1.0,,none,0.0,,none,0.0
+Haunted House,haunted house,dust_events.csv,TRUE,TRUE,FALSE,Haunted House,exact,1.0,Haunted House,exact,1.0,,none,0.0
+How We Roll - 101,how we roll - 101,dust_events.csv,TRUE,FALSE,FALSE,How We Roll - 101,exact,1.0,,none,0.0,,none,0.0
+Hypnotic Regenesis,hypnotic regenesis,dust_events.csv,TRUE,TRUE,FALSE,Hypnotic Regenesis,exact,1.0,Hypnotic Regenesis,exact,1.0,,none,0.0
+Ice Sales 🧊,ice sales,dust_events.csv,TRUE,FALSE,FALSE,Ice Sales 🧊,exact,1.0,,none,0.0,,none,0.0
+Integration Circle,integration circle,dust_events.csv,TRUE,FALSE,FALSE,Integration Circle,exact,1.0,,none,0.0,,none,0.0
+Interdimensional Moon Juice and Nail Art,interdimensional moon juice and nail art,dust_events.csv,TRUE,TRUE,FALSE,Interdimensional Moon Juice and Nail Art,exact,1.0,Interdimensional Moon Juice and Nail Art,exact,1.0,,none,0.0
+Karaoke,karaoke,dust_events.csv,TRUE,TRUE,FALSE,Karaoke,exact,1.0,Karaoke,exact,1.0,,none,0.0
+Lo-Bear and Willy-D’s Burn Wedding,lo-bear and willy-d's burn wedding,dust_events.csv,TRUE,TRUE,TRUE,Lo-Bear and Willy-D’s Burn Wedding,exact,1.0,Lo-Bear and Willy-D’s burn wedding,exact,1.0,Lo-Bear and Willy-D’s Wedding Celebration,fuzzy,0.7778
+Make-Your-Own Ramen Bar,make-your-own ramen bar,dust_events.csv,TRUE,TRUE,FALSE,Make-Your-Own Ramen Bar,exact,1.0,Make-Your-Own Ramen Bar,exact,1.0,,none,0.0
+Mandatory Conclave Safety Meeting,mandatory conclave safety meeting,dust_events.csv,TRUE,FALSE,FALSE,Mandatory Conclave Safety Meeting,exact,1.0,,none,0.0,,none,0.0
+Meowgarita party!,meowgarita party!,dust_events.csv,TRUE,FALSE,FALSE,Meowgarita party!,exact,1.0,,none,0.0,,none,0.0
+Metal Hour!,metal hour!,dust_events.csv,TRUE,TRUE,FALSE,Metal Hour!,exact,1.0,Metal Hour,fuzzy,1.0,,none,0.0
+Midday Mass,midday mass,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Midday Mass,source_only,1.0,,none,0.0
+MIMOSAS & METAL IN THE MORNING,mimosas & metal in the morning,dust_events.csv,TRUE,TRUE,FALSE,MIMOSAS & METAL IN THE MORNING,exact,1.0,MIMOSAS & METAL IN THE MORNING,exact,1.0,,none,0.0
+Misting station and Igloo!,misting station and igloo!,dust_events.csv,TRUE,FALSE,FALSE,Misting station and Igloo!,exact,1.0,,none,0.0,,none,0.0
+Molten Moments: A Live Glassworking Experience,molten moments a live glassworking experience,dust_events.csv,TRUE,TRUE,FALSE,Molten Moments: A Live Glassworking Experience,exact,1.0,Molten Moments: A Live Glassworking Experience,exact,1.0,,none,0.0
+Moment of Peace Sober Sesh Burner Meetup,moment of peace sober sesh burner meetup,dust_events.csv,TRUE,TRUE,TRUE,Moment of Peace Sober Sesh Burner Meetup,exact,1.0,"""Moment of Peace"" Sober Sesh Burner Meetup",exact,1.0,"""Moment of Peace"" Sober Sesh",fuzzy,0.7143
+Mooney Putt Portals,mooney putt portals,dust_events.csv,TRUE,TRUE,FALSE,Mooney Putt Portals,exact,1.0,Mooney Putt Portals,exact,1.0,,none,0.0
+Morning Coffee & Tea,morning coffee & tea,dust_events.csv,TRUE,TRUE,FALSE,Morning Coffee & Tea,exact,1.0,Morning Coffee & Tea,exact,1.0,,none,0.0
+Open Arena!!,open arena!!,dust_events.csv,TRUE,TRUE,FALSE,Open Arena!!,exact,1.0,Open Arena,fuzzy,1.0,,none,0.0
+open mic,open mic,dust_events.csv,TRUE,TRUE,FALSE,open mic,exact,1.0,Open Mic,exact,1.0,,none,0.0
+Pho Me Daddy - POWER HOUR!,pho me daddy - power hour!,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Pho Me Daddy - POWER HOUR!,source_only,1.0,,none,0.0
+Pickle Back Happy Hour,pickle back happy hour,dust_events.csv,TRUE,TRUE,FALSE,Pickle Back Happy Hour,exact,1.0,Pickle Back Happy Hour,exact,1.0,,none,0.0
+Pole Abiding 101,pole abiding 101,dust_events.csv,TRUE,FALSE,FALSE,Pole Abiding 101,exact,1.0,,none,0.0,,none,0.0
+P.R.E.A.C.H.,preach,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,P.R.E.A.C.H.,source_only,1.0,,none,0.0
+Principles Round Table,principles round table,dust_events.csv,TRUE,FALSE,TRUE,Principles Round Table,exact,1.0,,none,0.0,Principles Round Table,exact,1.0
+Ranger Training,ranger training,dust_events.csv,TRUE,FALSE,FALSE,Ranger Training,exact,1.0,,none,0.0,,none,0.0
+ReBirthDay Party,rebirthday party,dust_events.csv,TRUE,TRUE,FALSE,ReBirthDay Party,exact,1.0,ReBirthDay Party,exact,1.0,,none,0.0
+Rockband Karaoke!,rockband karaoke!,dust_events.csv,TRUE,TRUE,FALSE,Rockband Karaoke!,exact,1.0,Rockband Karaoke!,exact,1.0,,none,0.0
+Sanctuary Volunteers Meet and Greet,sanctuary volunteers meet and greet,dust_events.csv,TRUE,FALSE,FALSE,Sanctuary Volunteers Meet and Greet,exact,1.0,,none,0.0,,none,0.0
+Saturday Morning Cartoons,saturday morning cartoons,dust_events.csv,TRUE,TRUE,FALSE,Saturday Morning Cartoons,exact,1.0,Saturday Morning Cartoons,exact,1.0,,none,0.0
+Seafood boil brunch!,seafood boil brunch!,dust_events.csv,TRUE,FALSE,FALSE,Seafood boil brunch!,exact,1.0,,none,0.0,,none,0.0
+Self-Care Sunday,self-care sunday,dust_events.csv,TRUE,TRUE,FALSE,Self-Care Sunday,exact,1.0,Self-Care Sunday,exact,1.0,,none,0.0
+Shibari rope tasting,shibari rope tasting,dust_events.csv,TRUE,TRUE,FALSE,Shibari rope tasting,exact,1.0,Shibari rope tasting,exact,1.0,,none,0.0
+Sno Cones!,sno cones!,dust_events.csv,TRUE,FALSE,FALSE,Sno Cones!,exact,1.0,,none,0.0,,none,0.0
+Soup!!!! Soup!!!!,soup!!!! soup!!!!,dust_events.csv,TRUE,TRUE,FALSE,Soup!!!! Soup!!!!,exact,1.0,Soup Soup!!!,fuzzy,1.0,,none,0.0
+Synesthetic Ritual of Sensory Surrender,synesthetic ritual of sensory surrender,dust_events.csv,TRUE,TRUE,FALSE,Synesthetic Ritual of Sensory Surrender,exact,1.0,Synesthetic Ritual of Sensory Surrender,exact,1.0,,none,0.0
+Tarot: The Cult of Pawpaw Way,tarot the cult of pawpaw way,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Tarot: The Cult of Pawpaw Way,source_only,1.0,,none,0.0
+Tea Service in The Grotto,tea service in the grotto,dust_events.csv,TRUE,FALSE,TRUE,Tea Service in The Grotto,exact,1.0,,none,0.0,Tea Service in the Grotto,exact,1.0
+Temple Art Burn 🔥,temple art burn,dust_events.csv,TRUE,FALSE,FALSE,Temple Art Burn 🔥,exact,1.0,,none,0.0,,none,0.0
+The Burn is a Kaleidoscope,the burn is a kaleidoscope,dust_events.csv,TRUE,TRUE,FALSE,The Burn is a Kaleidoscope,exact,1.0,The Burn is a Kaleidoscope,exact,1.0,,none,0.0
+The Dude's Cinema,the dude's cinema,dust_events.csv,TRUE,TRUE,FALSE,The Dude's Cinema,exact,1.0,The Dude's Cinema,exact,1.0,,none,0.0
+"The Evolving Edge: Kink, Connection, and the Long-Term Partnership",the evolving edge kink connection and the long-term partnership,dust_events.csv,TRUE,TRUE,FALSE,"The Evolving Edge: Kink, Connection, and the Long-Term Partnership",exact,1.0,"The Evolving Edge: Kink, Connection, and the Long-Term Partnership",exact,1.0,,none,0.0
+The Next Generation - Meet up for Minors,the next generation - meet up for minors,dust_events.csv,TRUE,FALSE,FALSE,The Next Generation - Meet up for Minors,exact,1.0,,none,0.0,,none,0.0
+Too Many Clowns,too many clowns,dust_events.csv,TRUE,TRUE,FALSE,Too Many Clowns,exact,1.0,Too Many Clowns,exact,1.0,,none,0.0
+upside down time (headstands),upside down time headstands,dust_events.csv,TRUE,TRUE,FALSE,upside down time (headstands),exact,1.0,upside down time (headstands),exact,1.0,,none,0.0
+Way Holder Braiding Circle,way holder braiding circle,dust_events.csv,TRUE,FALSE,FALSE,Way Holder Braiding Circle,exact,1.0,,none,0.0,,none,0.0
+We Chuckin - A nunchaku flow workshop,we chuckin - a nunchaku flow workshop,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,We Chuckin - A nunchaku flow workshop,source_only,1.0,,none,0.0
+Wire Wrapped Moon Pendants,wire wrapped moon pendants,forms/events.csv,FALSE,TRUE,FALSE,,none,0.0,Wire Wrapped Moon Pendants,source_only,1.0,,none,0.0
