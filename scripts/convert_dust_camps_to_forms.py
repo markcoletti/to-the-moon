@@ -15,6 +15,8 @@ FORM_COLUMNS = [
     "Public Camp Description",
 ]
 
+EXCLUDED_DUST_EMAILS = {"impliedzero@gmail.com"}
+
 
 def main():
     parser = argparse.ArgumentParser(description="Convert Dust camps CSV into forms schema")
@@ -42,6 +44,11 @@ def main():
         pd.DataFrame(columns=FORM_COLUMNS).to_csv(output_path, index=False)
         print(f"Input was empty. Wrote empty forms file to {output_path}")
         return
+
+    if "email" in df.columns:
+        excluded = {email.lower() for email in EXCLUDED_DUST_EMAILS}
+        email_series = df["email"].fillna("").astype(str).str.lower()
+        df = df[~email_series.isin(excluded)]
 
     out_df = pd.DataFrame(
         {

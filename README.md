@@ -177,5 +177,5 @@ python3 mk_events.py data/2026/consolidated/events.csv 2026
 # Camps
 python3 scripts/convert_dust_camps_to_forms.py --year 2026
 python3 scripts/consolidate_camps.py --year 2026
-python3 mk_camps.py data/2026/consolidated/camps.csv
+python3 mk_camps.py data/2026/consolidated/camps.csv data/2026/output/camps_raw.tex
 ```

@@ -40,10 +40,10 @@ camps-consolidate year_arg=year:
 
 # Generate camps_raw.tex from consolidated camp data.
 camps-mk year_arg=year:
-    {{py}} mk_camps.py "data/{{year_arg}}/consolidated/camps.csv"
+    {{py}} mk_camps.py "data/{{year_arg}}/consolidated/camps.csv" "data/{{year_arg}}/output/camps_raw.tex"
 
 # Run full camp pipeline using data/<year>/dust/camps.csv.
 camps-all year_arg=year:
     {{py}} scripts/convert_dust_camps_to_forms.py --year "{{year_arg}}"
     {{py}} scripts/consolidate_camps.py --year "{{year_arg}}"
-    {{py}} mk_camps.py "data/{{year_arg}}/consolidated/camps.csv"
+    {{py}} mk_camps.py "data/{{year_arg}}/consolidated/camps.csv" "data/{{year_arg}}/output/camps_raw.tex"
