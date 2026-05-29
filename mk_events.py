@@ -10,55 +10,65 @@ import re
 from datetime import datetime
 import pandas as pd
 
-from common import latexize
+from common import latexize, collect_non_ascii_chars, report_unicode_warnings
 
-# We append the events to each of these strings as we go along, then write
-# them all out at once at the very end to the output .tex file.
-ongoing = '' # title for ongoing saved separately
-thursday = '\section[Thursday]{Thursday Events}\n\n'
-friday = '\section[Friday]{Friday Events}\n\n'
-saturday = '\section[Saturday]{Saturday Events}\n\n'
-sunday = '\section[Sunday]{Sunday Events}\n\n'
+FORM_RENAME_MAP = {
+    'What shall we call your Event?': 'title',
+    'Who is hosting? Theme Camp or Your name': 'host',
+    'Which day(s) will your event take place?': 'days',
+    'What time will your event start?': 'start',
+    'What time will your event end?': 'end',
+    'Description of your play-learn-workshop-event for the Pocket Guide!': 'description',
+    'Select a theme of your event for Pocket Guide!': 'theme',
+    'If Materials Are Used, Will You Provide Them?': 'bring',
+    'Not a Theme Camp? Please give us a location (art installation, lakeside, effigy, temple.. etc)': 'location',
+}
+
+FORM_COLUMNS = ['title', 'host', 'location', 'days', 'start', 'end', 'theme', 'description', 'bring']
+UNICODE_FIELDS = ['title', 'host', 'location', 'description', 'bring']
+
+SECTION_ORDER = ['Thursday', 'Friday', 'Saturday', 'Sunday']
+
+MEANINGLESS_VALUES = {'nan', 'n/a', 'na', 'none', 'no', 'no materials used'}
+EVENT_THEME_ICONS = {
+    'Performance': r'{\color{purple} \faTheaterMasks}',
+    'Event': r'{\color{purple} \faIcon[regular]{calendar-alt}}',
+    'Party': r'{\color{purple} \faIcon{glass-martini-alt}}',
+    'Workshop': r'{\color{purple} \faGraduationCap}',
+    'Game': r'{\color{purple} \faChess}',
+    'Music': r'{\color{purple} \faMusic}',
+    'Food': r'{\color{purple} \faPizzaSlice}',
+    'Non-alcoholic-Drinks': r'{\color{purple} \faCoffee}',
+    'Tour': r'{\color{purple} \faIcon{bus-alt}}',
+    'Fire': r'{\color{purple} \faIcon{fire-alt}}',
+    'Chill': r'{\color{purple} \faUmbrellaBeach}',
+    'Other': r'{\color{purple} \faIcon{question-circle-o}',
+}
 
 def make_event_theme(theme):
-  if theme == 'Performance':
-    return '{\color{purple} \\faTheaterMasks}'
-  elif theme == 'Event':
-    return '{\color{purple} \\faIcon[regular]{calendar-alt}}'
-  elif theme == 'Party':
-    return '{\color{purple} \\faIcon{glass-martini-alt}}'
-  elif theme == 'Workshop':
-    return '{\color{purple} \\faGraduationCap}'
-  elif theme == 'Game':
-    return '{\color{purple} \\faChess}'
-  elif theme == 'Music':
-    return '{\color{purple} \\faMusic}'
-  elif theme == 'Food':
-    return '{\color{purple} \\faPizzaSlice}'
-  elif theme == 'Non-alcoholic-Drinks':
-    return '{\color{purple} \\faCoffee}'
-  elif theme == 'Tour':
-    return '{\color{purple} \\faIcon{bus-alt}}'
-  elif theme == 'Fire':
-    return '{\color{purple} \\faIcon{fire-alt}}'
-  elif theme == 'Chill':
-    return '{\color{purple} \\faUmbrellaBeach}'
-  elif theme == 'Other':
-      return '{\color{purple} \\faIcon{question-circle-o}'
-  else:
-    return ''
+    return EVENT_THEME_ICONS.get(theme, '')
 
 
 def compile_event_output(title, host, location, time, description, bring):
-  output = '\\vbox{\n' + title + "\\begin{description}[leftmargin=2em,noitemsep,style=nextline]\n" + host + location + time + \
-            bring + "\end{description}\n" + description.replace('&', '\\&') + '}\n\n'
-  # output = output.replace('&', '\\&')
-  output = output.replace('\n', '\n\n')
-  return output
+    output = (
+        '\\vbox{\n'
+        + title
+        + '\\begin{description}[leftmargin=2em,noitemsep,style=nextline]\n'
+        + host
+        + location
+        + time
+        + bring
+        + '\\end{description}\n'
+        + description
+        + '}\n\n'
+    )
+    return output.replace('\n', '\n\n')
 
 
 def extract_dates(day_str):
-    return re.findall(r'\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+[A-Za-z]+\s+\d{1,2}', day_str)
+    if pd.isnull(day_str):
+        return []
+    return re.findall(r'\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+[A-Za-z]+\s+\d{1,2}', str(day_str))
 
 
 def infer_event_year(df, input_path):
@@ -80,6 +90,38 @@ def parse_date(day_str, year):
     return datetime.strptime(f"{day_str}, {year}", "%A, %B %d, %Y")
 
 
+def has_meaningful_value(value):
+    if pd.isnull(value):
+        return False
+
+    text = str(value).strip()
+    if text == '':
+        return False
+
+    lowered = text.lower()
+    return lowered not in MEANINGLESS_VALUES
+
+
+def make_optional_field(icon, text):
+    if not has_meaningful_value(text):
+        return ''
+    return rf'\item[{icon}] {latexize(text)}' + '\n'
+
+
+def init_section_buffers():
+    return {
+        day: f'\\section[{day}]{{{day} Events}}\n\n'
+        for day in SECTION_ORDER
+    }
+
+
+def collect_row_unicode_warnings(row):
+    non_ascii = set()
+    for field in UNICODE_FIELDS:
+        non_ascii.update(collect_non_ascii_chars(getattr(row, field)))
+    return sorted(non_ascii)
+
+
 if __name__ == '__main__':
     input_path = sys.argv[1]
     df = pd.read_csv(input_path)
@@ -87,17 +129,8 @@ if __name__ == '__main__':
 
     # Rename from the original Google form names to something a little more reasonable.
 
-    df.rename(columns={'What shall we call your Event?': 'title',
-                       'Who is hosting? Theme Camp or Your name': 'host',
-                       'Which day(s) will your event take place?': 'days',
-                       'What time will your event start?' : 'start',
-                       'What time will your event end?' : 'end',
-                       'Description of your play-learn-workshop-event for the Pocket Guide!': 'description',
-                       'Select a theme of your event for Pocket Guide!': 'theme',
-                       'If Materials Are Used, Will You Provide Them?': 'bring',
-                       'Not a Theme Camp? Please give us a location (art installation, lakeside, effigy, temple.. etc)': 'location'},
-              inplace=True)
-    df = df[['title', 'host', 'location', 'days', 'start', 'end', 'theme', 'description', 'bring']]
+    df.rename(columns=FORM_RENAME_MAP, inplace=True)
+    df = df[FORM_COLUMNS]
     df = df.infer_objects()
 
     # For events that occur over more than one day, we must replicate that even for each of those extra days
@@ -114,53 +147,48 @@ if __name__ == '__main__':
     df_expanded['day'] = df_expanded['date'].dt.day_name()
 
     df_expanded.sort_values(by=['date', 'start_time'], inplace=True)
+    unicode_warnings = []
+    ongoing = ''
+    section_buffers = init_section_buffers()
 
     # Strip any leading or trailing whitespace from the camp name and theme
     # df_expanded = df_expanded.apply(lambda col: col.str.strip() if col.dtype == 'object' and col.str.strip().notna().any() else col)
 
-    for index, row in df_expanded.iterrows():
+    for _, row in df_expanded.iterrows():
         print(f'Processing {row.title}...')
 
-        title = '\subsection*{\\begin{tblr}{Q[0.8\columnwidth]X[halign=r, valign=t]}' + '{} & {}'.format(
-            row.title.replace('&', '\\&'), make_event_theme(row.theme) + '\end{tblr}}\n')
+        non_ascii = collect_row_unicode_warnings(row)
+        if non_ascii:
+            unicode_warnings.append((row.title, non_ascii))
 
-        if not pd.isnull(row.host) and row.host != '':
-            host = '\item[{\color{violet} \\faUserFriends}] ' + '{}'.format(row.host) + '\n'
-        else:
-            host = ''
+        title = (
+            r'\subsection*{\begin{tblr}{Q[0.8\columnwidth]X[halign=r, valign=t]}'
+            + f'{latexize(row.title)} & {make_event_theme(row.theme)}'
+            + r'\end{tblr}}' + '\n'
+        )
 
-
-        if not pd.isnull(row.location) and row.location != '':
-            locationField = row.location
-            location = '\item[{\color{teal} \\faMapMarked}] ' + '{}'.format(locationField) + '\n'
-        else:
-            location = ''
-
-        theme = make_event_theme(row.theme)
+        host = make_optional_field(r'{\color{violet} \faUserFriends}', row.host)
+        location = make_optional_field(r'{\color{teal} \faMapMarked}', row.location)
 
         day = row.day # day of week
 
-        time = ('\item[{\color{cyan} \\faClock[regular]}] ' + '{}'.format(row.start_time) + '--' +
-                '{}'.format(row.end_time) + '\n')
+        time = (
+            r'\item[{\color{cyan} \faClock[regular]}] '
+            + f'{row.start_time}--{row.end_time}\n'
+        )
         description = '{}'.format(latexize(row.description)) + '\n'
 
-        if not pd.isnull(row.bring) or row.bring != '':
-            bring = '\item[{\color{red} \\faSuitcase}] ' + '{}'.format(row.bring) + '\n'
-        else:
-            bring = ''
+        bring = make_optional_field(r'{\color{red} \faSuitcase}', row.bring)
 
         output = compile_event_output(title, host, location, time, description, bring)
 
         if day == 'Everyday':
             ongoing += output
-        elif day == 'Thursday':
-            thursday += output
-        elif day == 'Friday':
-            friday += output
-        elif day == 'Saturday':
-            saturday += output
-        elif day == 'Sunday':
-            sunday += output
+        elif day in section_buffers:
+            section_buffers[day] += output
 
     with open('events_raw.tex', 'w') as f:
-        f.write(ongoing + thursday + friday + saturday + sunday)
+        ordered_sections = ''.join(section_buffers[day] for day in SECTION_ORDER)
+        f.write(ongoing + ordered_sections)
+
+    report_unicode_warnings(unicode_warnings, stream=sys.stderr)
