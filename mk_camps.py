@@ -48,14 +48,14 @@ def makeCampTheme(theme):
 def compileCampOutput(camp, theme, description, location='', notes=''):
     description = latexize(description) # escape any LaTeX hostile characters
     if camp in ["We're Occult", 'World Spirits']:
-        output = '\\vbox{\n' + '\subsection*{\\begin{tblr}{Q[0.6\columnwidth]X[halign=r, valign=t]}' + '{}'.format(
-            camp.replace('&', '\\&')) + '& {\color{purple} ' + \
-                 theme + '}\end{tblr}\\vspace{-1em}}\n' + location + description.replace('&', '\\&').replace('#',
+        output = '\\vbox{\n' + '\\subsection*{\\begin{tblr}{Q[0.6\\columnwidth]X[halign=r, valign=t]}' + '{}'.format(
+            camp.replace('&', '\\&')) + '& {\\color{purple} ' + \
+                 theme + '}\\end{tblr}\\vspace{-1em}}\n' + location + description.replace('&', '\\&').replace('#',
                                                                                                              '\\#') + notes + '\n}\n\n'
     else:
-        output = '\\vbox{\n' + '\subsection*{\\begin{tblr}{Q[0.7\columnwidth]X[halign=r, valign=t]}' + '{}'.format(
-            camp.replace('&', '\\&')) + '& {\color{purple} ' + \
-                 theme + '}\end{tblr}\\vspace{-1em}}\n' + location + description.replace('&', '\\&').replace('#',
+        output = '\\vbox{\n' + '\\subsection*{\\begin{tblr}{Q[0.7\\columnwidth]X[halign=r, valign=t]}' + '{}'.format(
+            camp.replace('&', '\\&')) + '& {\\color{purple} ' + \
+                 theme + '}\\end{tblr}\\vspace{-1em}}\n' + location + description.replace('&', '\\&').replace('#',
                                                                                                              '\\#') + notes + '\n}\n\n'
     output = output.replace('\n', '\n\n')
     return output
