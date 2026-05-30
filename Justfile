@@ -1,6 +1,6 @@
 set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
 
-year := env_var_or_default("YEAR", "2026")
+year := env_var_or_default("YEAR", `date +%Y`)
 py := ".venv/bin/python3"
 
 default:
@@ -21,13 +21,13 @@ events-consolidate year_arg=year:
 
 # Generate events_raw.tex from consolidated data.
 events-mk year_arg=year:
-    {{py}} mk_events.py "data/{{year_arg}}/consolidated/events.csv" "{{year_arg}}"
+    {{py}} mk_events.py "data/{{year_arg}}/consolidated/events.csv" "{{year_arg}}" "data/{{year_arg}}/output/events_raw.tex"
 
 # Run full event pipeline using data/<year>/dust/events.csv.
 events-all year_arg=year:
     {{py}} scripts/convert_dust_events_to_forms.py --year "{{year_arg}}"
     {{py}} scripts/consolidate_events.py --year "{{year_arg}}"
-    {{py}} mk_events.py "data/{{year_arg}}/consolidated/events.csv" "{{year_arg}}"
+    {{py}} mk_events.py "data/{{year_arg}}/consolidated/events.csv" "{{year_arg}}" "data/{{year_arg}}/output/events_raw.tex"
 
 # Convert Dust camps into Forms-compatible format.
 camps-convert year_arg=year:

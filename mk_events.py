@@ -7,6 +7,7 @@ the command line argument.
 """
 import sys
 import re
+from pathlib import Path
 from datetime import datetime
 import pandas as pd
 
@@ -42,8 +43,22 @@ EVENT_THEME_ICONS = {
     'Tour': r'{\color{purple} \faIcon{bus-alt}}',
     'Fire': r'{\color{purple} \faIcon{fire-alt}}',
     'Chill': r'{\color{purple} \faUmbrellaBeach}',
-    'Other': r'{\color{purple} \faIcon{question-circle-o}',
+    'Other': r'{\color{purple} \faIcon{question-circle}}',
 }
+
+UPSIDE_DOWN_EVENT_IDENTIFIERS = {
+    'Upside down time w/ River',
+    'ɹǝʌᴉɹ /ʍ ǝɯᴉʇ uʍop ǝpᴉsdn',
+}
+
+
+def format_event_title(title):
+    raw_title = '' if pd.isnull(title) else str(title)
+    if any(identifier in raw_title for identifier in UPSIDE_DOWN_EVENT_IDENTIFIERS):
+        # Render this one title upside down in LaTeX without relying on fragile Unicode glyphs.
+        return r'\rotatebox[origin=c]{180}{Upside down time w/ River}'
+    return latexize(raw_title)
+
 
 def make_event_theme(theme):
     return EVENT_THEME_ICONS.get(theme, '')
@@ -126,6 +141,8 @@ if __name__ == '__main__':
     input_path = sys.argv[1]
     df = pd.read_csv(input_path)
     event_year = int(sys.argv[2]) if len(sys.argv) > 2 else infer_event_year(df, input_path)
+    output_path = Path(sys.argv[3]) if len(sys.argv) > 3 else Path('events_raw.tex')
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Rename from the original Google form names to something a little more reasonable.
 
@@ -163,7 +180,7 @@ if __name__ == '__main__':
 
         title = (
             r'\subsection*{\begin{tblr}{Q[0.8\columnwidth]X[halign=r, valign=t]}'
-            + f'{latexize(row.title)} & {make_event_theme(row.theme)}'
+            + f'{format_event_title(row.title)} & {make_event_theme(row.theme)}'
             + r'\end{tblr}}' + '\n'
         )
 
@@ -187,7 +204,7 @@ if __name__ == '__main__':
         elif day in section_buffers:
             section_buffers[day] += output
 
-    with open('events_raw.tex', 'w') as f:
+    with output_path.open('w') as f:
         ordered_sections = ''.join(section_buffers[day] for day in SECTION_ORDER)
         f.write(ongoing + ordered_sections)
 

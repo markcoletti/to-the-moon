@@ -49,13 +49,12 @@ Nudie Misfits,nudie misfits,dust/camps_forms.csv,True,Nudie Misfits,source_only,
 Patchwork Petal Parlor,patchwork petal parlor,dust/camps_forms.csv,True,Patchwork Petal Parlor,source_only,1.0,True,Patchwork Petal Parlor,exact,1.0
 Ponder,ponder,dust/camps_forms.csv,True,Ponder,source_only,1.0,True,Ponder,exact,1.0
 Psilocybe Garden,psilocybe garden,dust/camps_forms.csv,True,Psilocybe Garden,source_only,1.0,True,Psilocybe Garden,exact,1.0
-Reconnect Camp,reconnect camp,dust/camps_forms.csv,True,Reconnect Camp,source_only,1.0,True,Reconnect Camp,exact,1.0
+ReConnect Camp,reconnect camp,dust/camps_forms.csv,True,Reconnect Camp,source_only,1.0,True,ReConnect Camp,exact,1.0
 Renegade Sound,renegade sound,forms/camps.csv,True,Renegade Sound,source_only,1.0,False,,none,0.0
 Sacred Snack Shack,sacred snack shack,forms/camps.csv,True,Sacred Snack Shack,source_only,1.0,False,,none,0.0
 Sacred Swarm,sacred swarm,dust/camps_forms.csv,True,Sacred Swarm,source_only,1.0,True,Sacred Swarm,exact,1.0
 Sandtasia,sandtasia,dust/camps_forms.csv,True,Sandtasia,source_only,1.0,True,Sandtasia,exact,1.0
-Sensua,sensua,forms/camps.csv,True,Sensua,source_only,1.0,False,,none,0.0
-Sensua (Adults only),sensua adults only,dust/camps_forms.csv,False,,none,0.0,True,Sensua (Adults only),source_only,1.0
+Sensua,sensua,dust/camps_forms.csv,True,Sensua,source_only,1.0,True,Sensua,exact,1.0
 Space Clowns from Outer Space (IN YO SPACE!),space clowns from outer space in yo space,dust/camps_forms.csv,True,Space Clowns from Outer Space (IN YO SPACE!),source_only,1.0,True,Space Clowns from Outer Space (IN YO SPACE!),exact,1.0
 Spectral Subverse,spectral subverse,dust/camps_forms.csv,True,Spectral Subverse,source_only,1.0,True,Spectral Subverse,exact,1.0
 Starlit Sanctuary,starlit sanctuary,dust/camps_forms.csv,True,Starlit Sanctuary,source_only,1.0,True,Starlit Sanctuary,exact,1.0
@@ -74,8 +73,7 @@ The whimsy Van winkle store,the whimsy van winkle store,forms/camps.csv,True,The
 Timey Wimey,timey wimey,dust/camps_forms.csv,True,Timey Wimey,source_only,1.0,True,Timey Wimey,exact,1.0
 "Toys, Treats, and Tiny Things",toys treats and tiny things,dust/camps_forms.csv,True,"Toys, Treats, and Tiny Things",source_only,1.0,True,"Toys, Treats, and Tiny Things",exact,1.0
 Tranquilitea,tranquilitea,dust/camps_forms.csv,True,Tranquilitea,source_only,1.0,True,Tranquilitea,exact,1.0
-Victory Surreal (art support for Kozyrev Echo & Fire Cups),victory surreal art support for kozyrev echo fire cups,dust/camps_forms.csv,False,,none,0.0,True,Victory Surreal (art support for Kozyrev Echo & Fire Cups),source_only,1.0
-Victory Surreal (art support for Kozyrev Echo),victory surreal art support for kozyrev echo,forms/camps.csv,True,Victory Surreal (art support for Kozyrev Echo),source_only,1.0,False,,none,0.0
+Victory Surreal (art support for Kozyrev Echo & Fire Cups),victory surreal art support for kozyrev echo fire cups,dust/camps_forms.csv,True,Victory Surreal (art support for Kozyrev Echo & Fire Cups),source_only,1.0,True,Victory Surreal (art support for Kozyrev Echo & Fire Cups),exact,1.0
 Viva San Escobar!,viva san escobar,dust/camps_forms.csv,True,Viva San Escobar!,source_only,1.0,True,Viva San Escobar!,exact,1.0
 Wasted Potential,wasted potential,dust/camps_forms.csv,True,Wasted Potential,source_only,1.0,True,Wasted Potential,exact,1.0
 Wayward Bud,wayward bud,dust/camps_forms.csv,True,Wayward Bud,source_only,1.0,True,Wayward Bud,exact,1.0

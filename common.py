@@ -39,7 +39,14 @@ UNICODE_REPLACEMENTS = {
     '🤹': r'\emoji{person-juggling}',
     '🧁': r'\emoji{cupcake}',
     '🧊': r'\emoji{ice}',
-    '🩷': r'\emoji{pink-heart}',
+    # pink-heart is not available in the TeX emoji package table; degrade gracefully.
+    '🩷': r'\emoji{red-heart}',
+    # Fallbacks for emojis commonly seen in form exports but unsupported by the font stack.
+    '🎱': r'\emoji{pool-8-ball}',
+    '😉': ';)',
+    '💦': r'\emoji{sweat-droplets}',
+    '✨': r'\emoji{sparkles}',
+    '🐻': r'\emoji{bear}',
     '🫖': r'\emoji{teapot}',
     # Variation selector in emoji sequences.
     '️': '',
@@ -47,6 +54,7 @@ UNICODE_REPLACEMENTS = {
 
 
 LATEX_ESCAPES = {
+    '\\': r'\textbackslash{}',
     '&': r'\&',
     '%': r'\%',
     '$': r'\$',
@@ -71,8 +79,17 @@ def latexize(text):
     if text is None:
         return ''
 
+    normalized = (
+        str(text)
+        .replace('\r\n', '\n')
+        .replace('\r', '\n')
+        # Dust/form content often carries literal escape sequences.
+        .replace('\\n', '\n')
+        .replace('\\t', '    ')
+    )
+
     output = []
-    for char in str(text):
+    for char in normalized:
         if char in UNICODE_REPLACEMENTS:
             output.append(UNICODE_REPLACEMENTS[char])
         else:
