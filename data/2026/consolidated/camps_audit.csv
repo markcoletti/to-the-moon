@@ -1,0 +1,83 @@
+consolidated_camp_name,canonical_normalized_key,prioritized_source,present_in_forms_camps_csv,forms_camps_camp_matched,forms_camps_match_type,forms_camps_match_score,present_in_dust_camps_csv,dust_camps_forms_camp_matched,dust_camps_forms_match_type,dust_camps_forms_match_score
+A Little Bit All Over The Place,a little bit all over the place,dust/camps_forms.csv,True,A Little Bit All Over The Place,source_only,1.0,True,A Little Bit All Over The Place,exact,1.0
+Abiding Grove,abiding grove,dust/camps_forms.csv,True,Abiding Grove,source_only,1.0,True,Abiding Grove,exact,1.0
+Acid Communism,acid communism,dust/camps_forms.csv,True,Acid Communism,source_only,1.0,True,Acid Communism,exact,1.0
+Ad Fontes,ad fontes,dust/camps_forms.csv,True,Ad Fontes,source_only,1.0,True,Ad Fontes,exact,1.0
+Adventures Beyond,adventures beyond,dust/camps_forms.csv,True,adventures beyond,source_only,1.0,True,Adventures Beyond,exact,1.0
+Ah-Mazing!,ahmazing,dust/camps_forms.csv,True,Ah-Mazing!,source_only,1.0,True,Ah-Mazing!,exact,1.0
+Astro-nots,astronots,dust/camps_forms.csv,True,Astro-nots,source_only,1.0,True,Astro-nots,exact,1.0
+Bacchanalia,bacchanalia,dust/camps_forms.csv,True,Bacchanalia,source_only,1.0,True,Bacchanalia,exact,1.0
+Banana Hammocks,banana hammocks,dust/camps_forms.csv,True,Banana Hammocks,source_only,1.0,True,Banana Hammocks,exact,1.0
+Bark Park,bark park,dust/camps_forms.csv,True,Bark Park,source_only,1.0,True,Bark Park,exact,1.0
+Bear Necessities,bear necessities,dust/camps_forms.csv,True,Bear Necessities,source_only,1.0,True,Bear Necessities,exact,1.0
+Big Fluffy Cloud,big fluffy cloud,dust/camps_forms.csv,True,Big Fluffy Cloud,source_only,1.0,True,Big Fluffy Cloud,exact,1.0
+Big Spooky Energy,big spooky energy,dust/camps_forms.csv,True,Big Spooky Energy,source_only,1.0,True,Big Spooky Energy,exact,1.0
+Bingopalooza,bingopalooza,dust/camps_forms.csv,True,Bingopalooza,source_only,1.0,True,Bingopalooza,exact,1.0
+CAMP NOT YOUR MOM,camp not your mom,dust/camps_forms.csv,True,CAMP NOT YOUR MOM,source_only,1.0,True,CAMP NOT YOUR MOM,exact,1.0
+Cameo’s Closet,cameo's closet,dust/camps_forms.csv,True,Cameo’s Closet,source_only,1.0,True,Cameo’s Closet,exact,1.0
+Camp Camp,camp camp,dust/camps_forms.csv,True,Camp Camp,source_only,1.0,True,Camp Camp,exact,1.0
+Camp Pretty Lights,camp pretty lights,dust/camps_forms.csv,True,Camp Pretty Lights,source_only,1.0,True,Camp Pretty Lights,exact,1.0
+Camp Procrastination,camp procrastination,dust/camps_forms.csv,True,Camp Procrastination,source_only,1.0,True,Camp Procrastination,exact,1.0
+Cool as Fuck!,cool as fuck,dust/camps_forms.csv,True,Cool as Fuck!,source_only,1.0,True,Cool as Fuck!,exact,1.0
+Crappy Bar,crappy bar,dust/camps_forms.csv,True,Crappy Bar,source_only,1.0,True,Crappy Bar,exact,1.0
+Creature Comforts,creature comforts,dust/camps_forms.csv,True,Creature Comforts,source_only,1.0,True,Creature Comforts,exact,1.0
+Cult of Pawpaw,cult of pawpaw,dust/camps_forms.csv,True,Cult of Pawpaw,source_only,1.0,True,Cult of Pawpaw,exact,1.0
+DreamCamp,dreamcamp,dust/camps_forms.csv,True,DreamCamp,source_only,1.0,True,DreamCamp,exact,1.0
+EleMENTAL,elemental,dust/camps_forms.csv,True,EleMENTAL,source_only,1.0,True,EleMENTAL,exact,1.0
+Fantasy Island,fantasy island,dust/camps_forms.csv,True,Fantasy Island,source_only,1.0,True,Fantasy Island,exact,1.0
+Flow As You Go,flow as you go,dust/camps_forms.csv,True,Flow As You Go,source_only,1.0,True,Flow As You Go,exact,1.0
+Fuzzy Wuzzy,fuzzy wuzzy,dust/camps_forms.csv,True,Fuzzy Wuzzy,source_only,1.0,True,Fuzzy Wuzzy,exact,1.0
+Galactic Printers,galactic printers,dust/camps_forms.csv,True,Galatic Printers,source_only,1.0,True,Galactic Printers,fuzzy,0.9697
+Garden Party,garden party,dust/camps_forms.csv,True,Garden Party,source_only,1.0,True,Garden Party,exact,1.0
+Georgia Peanuts,georgia peanuts,dust/camps_forms.csv,True,Georgia Peanuts,source_only,1.0,True,Georgia Peanuts,exact,1.0
+Go Outside Nerd,go outside nerd,dust/camps_forms.csv,True,Go Outside Nerd,source_only,1.0,True,Go Outside Nerd,exact,1.0
+Heart Mechanics,heart mechanics,dust/camps_forms.csv,True,Heart Mechanics,source_only,1.0,True,Heart Mechanics,exact,1.0
+Heathen Life,heathen life,dust/camps_forms.csv,True,Heathen Life,source_only,1.0,True,Heathen Life,exact,1.0
+Horrible Trip Sitters,horrible trip sitters,dust/camps_forms.csv,True,Horrible trip sitters,source_only,1.0,True,Horrible Trip Sitters,exact,1.0
+Hydration Hoes,hydration hoes,forms/camps.csv,True,Hydration Hoes,source_only,1.0,False,,none,0.0
+Jungle of Obscurities,jungle of obscurities,dust/camps_forms.csv,True,Jungle of Obscurities,source_only,1.0,True,Jungle of Obscurities,exact,1.0
+Just People,just people,dust/camps_forms.csv,True,Just People,source_only,1.0,True,Just People,exact,1.0
+Kamp Khaos,kamp khaos,forms/camps.csv,True,Kamp Khaos,source_only,1.0,False,,none,0.0
+Kamp Khaos Arena,kamp khaos arena,dust/camps_forms.csv,False,,none,0.0,True,Kamp Khaos Arena,source_only,1.0
+Kamp Khaos Support Camp,kamp khaos support camp,dust/camps_forms.csv,False,,none,0.0,True,Kamp Khaos Support Camp,source_only,1.0
+Karaokemp!,karaokemp,dust/camps_forms.csv,True,Karaokemp,source_only,1.0,True,Karaokemp!,exact,1.0
+LMK Enlightment - Art Support Team,lmk enlightment art support team,dust/camps_forms.csv,True,LMK Enlightment - Art Support Team,source_only,1.0,True,LMK Enlightment - Art Support Team,exact,1.0
+Liminal,liminal,dust/camps_forms.csv,True,Liminal,source_only,1.0,True,Liminal,exact,1.0
+Little Bohemia House Party,little bohemia house party,dust/camps_forms.csv,True,Little Bohemia House Party,source_only,1.0,True,Little Bohemia House Party,exact,1.0
+Mythalia,mythalia,dust/camps_forms.csv,True,Mythalia,source_only,1.0,True,Mythalia,exact,1.0
+Nudie Misfits,nudie misfits,dust/camps_forms.csv,True,Nudie Misfits,source_only,1.0,True,Nudie Misfits,exact,1.0
+Patchwork Petal Parlor,patchwork petal parlor,dust/camps_forms.csv,True,Patchwork Petal Parlor,source_only,1.0,True,Patchwork Petal Parlor,exact,1.0
+Ponder,ponder,dust/camps_forms.csv,True,Ponder,source_only,1.0,True,Ponder,exact,1.0
+Psilocybe Garden,psilocybe garden,dust/camps_forms.csv,True,Psilocybe Garden,source_only,1.0,True,Psilocybe Garden,exact,1.0
+ReConnect Camp,reconnect camp,dust/camps_forms.csv,True,Reconnect Camp,source_only,1.0,True,ReConnect Camp,exact,1.0
+Renegade Sound,renegade sound,forms/camps.csv,True,Renegade Sound,source_only,1.0,False,,none,0.0
+Sacred Snack Shack,sacred snack shack,forms/camps.csv,True,Sacred Snack Shack,source_only,1.0,False,,none,0.0
+Sacred Swarm,sacred swarm,dust/camps_forms.csv,True,Sacred Swarm,source_only,1.0,True,Sacred Swarm,exact,1.0
+Sandtasia,sandtasia,dust/camps_forms.csv,True,Sandtasia,source_only,1.0,True,Sandtasia,exact,1.0
+Sensua,sensua,dust/camps_forms.csv,True,Sensua,source_only,1.0,True,Sensua,exact,1.0
+Space Clowns from Outer Space (IN YO SPACE!),space clowns from outer space in yo space,dust/camps_forms.csv,True,Space Clowns from Outer Space (IN YO SPACE!),source_only,1.0,True,Space Clowns from Outer Space (IN YO SPACE!),exact,1.0
+Spectral Subverse,spectral subverse,dust/camps_forms.csv,True,Spectral Subverse,source_only,1.0,True,Spectral Subverse,exact,1.0
+Starlit Sanctuary,starlit sanctuary,dust/camps_forms.csv,True,Starlit Sanctuary,source_only,1.0,True,Starlit Sanctuary,exact,1.0
+Sunshine Yoga Cafe,sunshine yoga cafe,dust/camps_forms.csv,True,Sunshine Yoga Cafe,source_only,1.0,True,Sunshine Yoga Cafe,exact,1.0
+Swag n Dab,swag n dab,dust/camps_forms.csv,True,Swag n Dab,source_only,1.0,True,Swag n Dab,exact,1.0
+Temple of The Tea Monks,temple of the tea monks,dust/camps_forms.csv,True,Temple of The Tea Monks,source_only,1.0,True,Temple of The Tea Monks,exact,1.0
+The BlackLit Moon,the blacklit moon,dust/camps_forms.csv,True,The BlackLit Moon,source_only,1.0,True,The BlackLit Moon,exact,1.0
+The Broken Drum,the broken drum,dust/camps_forms.csv,True,The Broken Drum,source_only,1.0,True,The Broken Drum,exact,1.0
+The French Quarter,the french quarter,dust/camps_forms.csv,True,The French Quarter,source_only,1.0,True,The French Quarter,exact,1.0
+The Green Room,the green room,dust/camps_forms.csv,True,The Green Room,source_only,1.0,True,The Green Room,exact,1.0
+The Parlour,the parlour,dust/camps_forms.csv,True,The Parlour,source_only,1.0,True,The Parlour,exact,1.0
+The Surreal Saloon,the surreal saloon,dust/camps_forms.csv,True,The Surreal Saloon,source_only,1.0,True,The Surreal Saloon,exact,1.0
+The Thirsty Frog Tavern,the thirsty frog tavern,dust/camps_forms.csv,True,The Thirsty Frog Tavern,source_only,1.0,True,The Thirsty Frog Tavern,exact,1.0
+The Thrifty Pickle,the thrifty pickle,dust/camps_forms.csv,True,The Thrifty Pickle,source_only,1.0,True,The Thrifty Pickle,exact,1.0
+The whimsy Van winkle store,the whimsy van winkle store,forms/camps.csv,True,The whimsy Van winkle store,source_only,1.0,False,,none,0.0
+Timey Wimey,timey wimey,dust/camps_forms.csv,True,Timey Wimey,source_only,1.0,True,Timey Wimey,exact,1.0
+"Toys, Treats, and Tiny Things",toys treats and tiny things,dust/camps_forms.csv,True,"Toys, Treats, and Tiny Things",source_only,1.0,True,"Toys, Treats, and Tiny Things",exact,1.0
+Tranquilitea,tranquilitea,dust/camps_forms.csv,True,Tranquilitea,source_only,1.0,True,Tranquilitea,exact,1.0
+Victory Surreal (art support for Kozyrev Echo & Fire Cups),victory surreal art support for kozyrev echo fire cups,dust/camps_forms.csv,True,Victory Surreal (art support for Kozyrev Echo & Fire Cups),source_only,1.0,True,Victory Surreal (art support for Kozyrev Echo & Fire Cups),exact,1.0
+Viva San Escobar!,viva san escobar,dust/camps_forms.csv,True,Viva San Escobar!,source_only,1.0,True,Viva San Escobar!,exact,1.0
+Wasted Potential,wasted potential,dust/camps_forms.csv,True,Wasted Potential,source_only,1.0,True,Wasted Potential,exact,1.0
+Wayward Bud,wayward bud,dust/camps_forms.csv,True,Wayward Bud,source_only,1.0,True,Wayward Bud,exact,1.0
+Wood Petter's Lounge,wood petter's lounge,dust/camps_forms.csv,True,Wood Petter's Lounge,source_only,1.0,True,Wood Petter's Lounge,exact,1.0
+World Spirits,world spirits,dust/camps_forms.csv,True,World Spirits,source_only,1.0,True,World Spirits,exact,1.0
+camp gay,camp gay,dust/camps_forms.csv,True,camp gay,source_only,1.0,True,camp gay,exact,1.0
+fablous hobo kamp,fablous hobo kamp,dust/camps_forms.csv,True,fablous hobo kamp,source_only,1.0,True,fablous hobo kamp,exact,1.0

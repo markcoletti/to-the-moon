@@ -6,6 +6,7 @@ Export the camp data from the Google Sheet as a CSV and save it.  Then pass it a
 the command line argument.
 """
 import sys
+from pathlib import Path
 
 import pandas as pd
 
@@ -46,17 +47,16 @@ def makeCampTheme(theme):
 
 
 def compileCampOutput(camp, theme, description, location='', notes=''):
+    camp_title = latexize(camp)
     description = latexize(description) # escape any LaTeX hostile characters
     if camp in ["We're Occult", 'World Spirits']:
-        output = '\\vbox{\n' + '\subsection*{\\begin{tblr}{Q[0.6\columnwidth]X[halign=r, valign=t]}' + '{}'.format(
-            camp.replace('&', '\\&')) + '& {\color{purple} ' + \
-                 theme + '}\end{tblr}\\vspace{-1em}}\n' + location + description.replace('&', '\\&').replace('#',
-                                                                                                             '\\#') + notes + '\n}\n\n'
+        output = '\\vbox{\n' + '\\subsection*{\\begin{tblr}{Q[0.6\\columnwidth]X[halign=r, valign=t]}' + '{}'.format(
+            camp_title) + '& {\\color{purple} ' + \
+                 theme + '}\\end{tblr}\\vspace{-1em}}\n' + location + description + notes + '\n}\n\n'
     else:
-        output = '\\vbox{\n' + '\subsection*{\\begin{tblr}{Q[0.7\columnwidth]X[halign=r, valign=t]}' + '{}'.format(
-            camp.replace('&', '\\&')) + '& {\color{purple} ' + \
-                 theme + '}\end{tblr}\\vspace{-1em}}\n' + location + description.replace('&', '\\&').replace('#',
-                                                                                                             '\\#') + notes + '\n}\n\n'
+        output = '\\vbox{\n' + '\\subsection*{\\begin{tblr}{Q[0.7\\columnwidth]X[halign=r, valign=t]}' + '{}'.format(
+            camp_title) + '& {\\color{purple} ' + \
+                 theme + '}\\end{tblr}\\vspace{-1em}}\n' + location + description + notes + '\n}\n\n'
     output = output.replace('\n', '\n\n')
     return output
 
@@ -64,6 +64,8 @@ def compileCampOutput(camp, theme, description, location='', notes=''):
 
 if __name__ == '__main__':
     df = pd.read_csv(sys.argv[1])
+    output_path = Path(sys.argv[2]) if len(sys.argv) > 2 else Path('camps_raw.tex')
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     df.rename(columns={'Theme Camp Name': 'camp',
                        'In what "genres" would you classify your camp? Check all that apply.': 'theme',
@@ -78,7 +80,7 @@ if __name__ == '__main__':
     # Strip any leading or trailing whitespace from the camp name and theme
     df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
 
-    with open('camps_raw.tex', 'w') as f:
+    with output_path.open('w') as f:
 
         for index, row in df.iterrows():
             camp = row.camp

@@ -1,0 +1,4 @@
+[tools]
+python = "3.13"
+just = "1.40.0"
+uv = "latest"
